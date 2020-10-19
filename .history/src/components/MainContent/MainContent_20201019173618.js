@@ -35,8 +35,6 @@ function MainContent(){
     setUserInput({[name]: value})
   }
 
-  useEffect(() => {console.log(userInput)}, [userInput])
-
   function getData(){
     fetch(url)
     .then(response => response.json())
@@ -47,7 +45,6 @@ function MainContent(){
     <div>
       <SearchForm
         handleFormChange={handleFormChange}
-        userInput={userInput}
       />
       <Jobs/>
     </div>

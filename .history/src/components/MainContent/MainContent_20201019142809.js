@@ -6,16 +6,12 @@ import Jobs from "../Jobs/Jobs"
 function MainContent(){
 
   const baseUrl = "https://jobs.github.com/positions.json?"
-  const[url, setUrl] = useState(baseUrl)
+  let fullUrl = baseUrl
+
   const[data, setData] = useState("")
-  const[userInput, setUserInput] = useState({
-    description: "",
-    location: "",
-    fullTime: true
-  })
-  // const[description, setDescription] = useState("")
-  // const[location, setLocation] = useState("")
-  // const[fullTime, setFullTime] = useState(true)
+  const[description, setDescription] = useState("")
+  const[location, setLocation] = useState("")
+  const[fullTime, setFullTime] = useState(true)
 
 
 // when the user types a word in either the description or location input field or changes the full time checkbox
@@ -30,25 +26,15 @@ function MainContent(){
 //   type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
 // }
 
-  function handleFormChange(e){
-    const {name, value, type, checked} = e.target
-    setUserInput({[name]: value})
-  }
-
-  useEffect(() => {console.log(userInput)}, [userInput])
-
   function getData(){
-    fetch(url)
+    fetch(fullUrl)
     .then(response => response.json())
     .then(data => setData(data))
   }
 
   return (
     <div>
-      <SearchForm
-        handleFormChange={handleFormChange}
-        userInput={userInput}
-      />
+      <SearchForm/>
       <Jobs/>
     </div>
   )

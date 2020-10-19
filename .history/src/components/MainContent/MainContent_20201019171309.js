@@ -32,10 +32,8 @@ function MainContent(){
 
   function handleFormChange(e){
     const {name, value, type, checked} = e.target
-    setUserInput({[name]: value})
+    setUserInput(e.value)
   }
-
-  useEffect(() => {console.log(userInput)}, [userInput])
 
   function getData(){
     fetch(url)
@@ -47,7 +45,6 @@ function MainContent(){
     <div>
       <SearchForm
         handleFormChange={handleFormChange}
-        userInput={userInput}
       />
       <Jobs/>
     </div>

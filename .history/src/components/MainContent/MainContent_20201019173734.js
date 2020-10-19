@@ -33,9 +33,8 @@ function MainContent(){
   function handleFormChange(e){
     const {name, value, type, checked} = e.target
     setUserInput({[name]: value})
+    console.log(userInput)
   }
-
-  useEffect(() => {console.log(userInput)}, [userInput])
 
   function getData(){
     fetch(url)

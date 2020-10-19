@@ -10,7 +10,6 @@ function SearchForm(props){
           type="text"
           onChange={e => props.handleFormChange(e)}
           placeholder="Python"
-          value={props.userInput.description}
         />
       </form>
     </div>

@@ -6,11 +6,9 @@ function SearchForm(props){
     <div>
       <form>
         <input
-          name="description"
           type="text"
-          onChange={e => props.handleFormChange(e)}
+          onChange={e => props.handleDescChange(e)}
           placeholder="Python"
-          value={props.userInput.description}
         />
       </form>
     </div>

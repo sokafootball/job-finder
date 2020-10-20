@@ -9,14 +9,14 @@ function SearchForm(props){
           name="description"
           type="text"
           onChange={e => props.handleFormChange(e)}
-          placeholder="Es. Python"
+          placeholder="Python"
           value={props.userInput.description}
         />
         <input
           name="location"
           type="text"
           onChange={e => props.handleFormChange(e)}
-          placeholder="Es. San Francisco"
+          placeholder="San Francisco"
           value={props.userInput.location}
         />
         <input

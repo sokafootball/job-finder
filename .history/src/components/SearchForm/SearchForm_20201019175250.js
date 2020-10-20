@@ -16,7 +16,7 @@ function SearchForm(props){
           name="fullTime"
           type="checkbox"
           onChange={e => props.handleFormChange(e)}
-          checked={props.userInput.fullTime}
+          value={props.userInput.fullTime}
         />
       </form>
     </div>

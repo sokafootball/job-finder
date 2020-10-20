@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
-import JobCard from "../JobCard/JobCard"
+import Jobs from "../Jobs/Jobs"
 
 function MainContent(){
   const[data, setData] = useState("")
@@ -51,14 +51,8 @@ function MainContent(){
     }
 
   useEffect(() => {
-    getData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    console.log(userInput)
   }, [userInput])
-
-  useEffect(() => {
-    console.log(data)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
 
   return (
     <div>
@@ -66,7 +60,7 @@ function MainContent(){
         handleFormChange={handleFormChange}
         userInput={userInput}
       />
-      <JobCard/>
+      <Jobs/>
     </div>
   )
 }

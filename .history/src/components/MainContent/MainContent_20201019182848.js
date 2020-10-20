@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
-import JobCard from "../JobCard/JobCard"
+import Jobs from "../Jobs/Jobs"
 
 function MainContent(){
   const[data, setData] = useState("")
@@ -34,31 +34,46 @@ function MainContent(){
     : setUserInput({...userInput,[name]: value})
   }
 
-  const buildUrl = () => {
+
+
+  const getDataCallback = useCallback(
+    () => {
+      getData()
+    },
+    [getData],
+  );
+
+  const buildUrlCallback = useCallback(
+    () => {
+      buildUrl()
+    },
+    [buildUrl],
+  )
+
+  function getData(){
+    const url = buildUrlCallback()
+    fetch(url)
+    .then(response => response.json())
+    .then(data => setData(data))
+  }
+
+  function buildUrl(){
     let url = "https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""
     console.log(`i will query this url: ${url}`)
     return url
-    }
-
-  const getData = () => {
-    const url = buildUrl()
-    fetch(url)
-    .then(response => response.json())
-    .then(data => setData(data))
-    }
+  }
 
   useEffect(() => {
-    getData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInput])
+    console.log(`data before fetching ... ${data}`)
+    getDataCallback()
+    console.log(`data after fetching ... ${data}`)
 
-  useEffect(() => {
-    console.log(data)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+
+      // getData(userInput)
+  }, [data, getData, getDataCallback, userInput])
 
   return (
     <div>
@@ -66,7 +81,7 @@ function MainContent(){
         handleFormChange={handleFormChange}
         userInput={userInput}
       />
-      <JobCard/>
+      <Jobs/>
     </div>
   )
 }

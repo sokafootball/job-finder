@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
-import JobCard from "../JobCard/JobCard"
+import Jobs from "../Jobs/Jobs"
 
 function MainContent(){
   const[data, setData] = useState("")
@@ -66,7 +66,7 @@ function MainContent(){
         handleFormChange={handleFormChange}
         userInput={userInput}
       />
-      <JobCard/>
+      <Jobs/>
     </div>
   )
 }

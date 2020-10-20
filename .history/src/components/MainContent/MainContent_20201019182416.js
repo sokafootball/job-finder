@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
-import JobCard from "../JobCard/JobCard"
+import Jobs from "../Jobs/Jobs"
 
 function MainContent(){
   const[data, setData] = useState("")
@@ -34,31 +34,36 @@ function MainContent(){
     : setUserInput({...userInput,[name]: value})
   }
 
-  const buildUrl = () => {
-    let url = "https://jobs.github.com/positions.json?"
+  useEffect(() => {
+    console.log(`data before fetching ... ${data}`)
+    getData()
+    console.log(`data after fetching ... ${data}`)
+
+
+      // getData(userInput)
+  }, [data, userInput])
+
+  const getDataCallback = useCallback(
+    () => {
+      const url = buildUrlCallback()
+      fetch(url)
+      .then(response => response.json())
+      .then(data => setData(data))
+    },
+    [buildUrlCallback],
+  );
+
+  const buildUrlCallback = useCallback(
+    () => {
+      let url = "https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""
     console.log(`i will query this url: ${url}`)
     return url
-    }
-
-  const getData = () => {
-    const url = buildUrl()
-    fetch(url)
-    .then(response => response.json())
-    .then(data => setData(data))
-    }
-
-  useEffect(() => {
-    getData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInput])
-
-  useEffect(() => {
-    console.log(data)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+    },
+    [userInput.description, userInput.fullTime, userInput.location],
+  );
 
   return (
     <div>
@@ -66,7 +71,7 @@ function MainContent(){
         handleFormChange={handleFormChange}
         userInput={userInput}
       />
-      <JobCard/>
+      <Jobs/>
     </div>
   )
 }

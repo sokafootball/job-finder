@@ -2,6 +2,7 @@ import React from 'react';
 import './JobCard.css';
 
 function JobCard(props){
+  if(props !== {})
   return (
     <div>
       <p id="date">{props.date}</p>

@@ -4,8 +4,7 @@ import SearchForm from "../SearchForm/SearchForm"
 import JobCard from "../JobCard/JobCard"
 
 function MainContent(){
-  const[jobCards, setJobCards] = useState([])
-  const[data, setData] = useState([])
+  const[data, setData] = useState({})
   const[userInput, setUserInput] = useState({
     description: "",
     location: "",
@@ -57,10 +56,9 @@ function MainContent(){
   }, [userInput])
 
   useEffect(() => {
-    let cards = []
-    if(data.length !== 0) {
-      cards = data.map(job => {
-        return <JobCard
+    let jobCards = []
+    jobCards = data.map(job => {
+      return <JobCard
           key={job.id}
           date={job.created_at}
           logo={job.company_logo}
@@ -70,11 +68,12 @@ function MainContent(){
           title={job.title}
           url={job.url}
         />
-     })
-    }
-    setJobCards(cards)
+    })
+    console.log(data)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
+
+
 
     return (
       <div>
@@ -82,7 +81,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {jobCards}
+        {jobs}
       </div>
     )
 }

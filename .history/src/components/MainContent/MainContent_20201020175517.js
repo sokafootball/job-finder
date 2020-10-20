@@ -3,17 +3,10 @@ import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
 import JobCard from "../JobCard/JobCard"
 
-function MainContent(){
-  const[jobCards, setJobCards] = useState([])
-  const[data, setData] = useState([])
-  const[userInput, setUserInput] = useState({
-    description: "",
-    location: "",
-    fullTime: true
-  })
-  // const[description, setDescription] = useState("")
-  // const[location, setLocation] = useState("")
-  // const[fullTime, setFullTime] = useState(true)
+})
+// const[description, setDescription] = useState("")
+// const[location, setLocation] = useState("")
+// const[fullTime, setFullTime] = useState(true)
 
 
 // when the user types a word in either the description or location input field or changes the full time checkbox
@@ -27,6 +20,12 @@ function MainContent(){
 //   const {name, value, type, checked} = event.target
 //   type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
 // }
+function MainContent(){
+  const[data, setData] = useState({})
+  const[userInput, setUserInput] = useState({
+    description: "",
+    location: "",
+    fullTime: true
 
   function handleFormChange(e){
     const {name, value, type, checked} = e.target
@@ -57,24 +56,10 @@ function MainContent(){
   }, [userInput])
 
   useEffect(() => {
-    let cards = []
-    if(data.length !== 0) {
-      cards = data.map(job => {
-        return <JobCard
-          key={job.id}
-          date={job.created_at}
-          logo={job.company_logo}
-          company={job.company_name}
-          location={job.location}
-          type={job.type}
-          title={job.title}
-          url={job.url}
-        />
-     })
-    }
-    setJobCards(cards)
+    console.log(data)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
+
 
     return (
       <div>
@@ -82,7 +67,15 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {jobCards}
+        <JobCard
+          date={data[0].created_at}
+          logo={data[0].company_logo}
+          company={data[0].company_name}
+          location={data[0].location}
+          type={data[0].type}
+          title={data[0].title}
+          url={data[0].url}
+        />
       </div>
     )
 }

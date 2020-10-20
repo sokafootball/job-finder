@@ -5,7 +5,7 @@ import JobCard from "../JobCard/JobCard"
 
 function MainContent(){
   const[jobCards, setJobCards] = useState([])
-  const[data, setData] = useState([])
+  const[data, setData] = useState({})
   const[userInput, setUserInput] = useState({
     description: "",
     location: "",
@@ -56,25 +56,25 @@ function MainContent(){
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
 
-  useEffect(() => {
-    let cards = []
-    if(data.length !== 0) {
-      cards = data.map(job => {
-        return <JobCard
-          key={job.id}
-          date={job.created_at}
-          logo={job.company_logo}
-          company={job.company_name}
-          location={job.location}
-          type={job.type}
-          title={job.title}
-          url={job.url}
-        />
-     })
-    }
-    setJobCards(cards)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  // useEffect(() => {
+  //   console.log(data)
+  //   jobCards = data.map(job => {
+  //     return <JobCard
+  //         key={job.id}
+  //         date={job.created_at}
+  //         logo={job.company_logo}
+  //         company={job.company_name}
+  //         location={job.location}
+  //         type={job.type}
+  //         title={job.title}
+  //         url={job.url}
+  //       />
+  //   })
+  //   setJobCards(jobCards)
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [data])
+
+
 
     return (
       <div>

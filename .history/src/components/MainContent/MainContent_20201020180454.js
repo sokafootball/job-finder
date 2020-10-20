@@ -57,9 +57,9 @@ function MainContent(){
   }, [userInput])
 
   useEffect(() => {
-    let cards = []
-    if(data.length !== 0) {
-      cards = data.map(job => {
+    console.log(data.length !== 0)
+    if(data !== []) {
+      jobCards = data.map(job => {
         return <JobCard
           key={job.id}
           date={job.created_at}
@@ -72,9 +72,11 @@ function MainContent(){
         />
      })
     }
-    setJobCards(cards)
+    setJobCards(jobCards)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
+
+
 
     return (
       <div>

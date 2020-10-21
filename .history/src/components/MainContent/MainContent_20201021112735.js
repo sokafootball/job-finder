@@ -52,7 +52,12 @@ function MainContent(){
     .then(data => setData(data))
   }
 
-  const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
+  const debouncedGetData = useCallback(_.debounce(() => {
+    const url = buildUrl()
+    fetch(url)
+    .then(response => response.json())
+    .then(data => setData(data))
+  }, 1500,{leading: true}),[])
 
   useEffect(() => {
     debouncedGetData()

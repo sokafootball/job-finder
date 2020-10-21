@@ -52,15 +52,23 @@ function MainContent(){
     .then(data => setData(data))
   }
 
-  const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
 
-  useEffect(() => {
-    debouncedGetData()
+  useEffect(
+    _.debounce(() => {
+      const url = buildUrl()
+      fetch(url)
+      .then(response => response.json())
+      .then(data => setData(data))
+    }, 3000,{
+      'leading': true,
+      'trailing': false
+    })
+    //getData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInput])
+  , [userInput])
 
   useEffect(() => {
-    console.log(`data: ${data}`)
+    console.log(data)
     let cards = []
     if(data.length !== 0) {
       cards = data.map(job => {

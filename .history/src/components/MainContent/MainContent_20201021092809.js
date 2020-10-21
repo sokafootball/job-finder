@@ -52,15 +52,14 @@ function MainContent(){
     .then(data => setData(data))
   }
 
-  const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
 
   useEffect(() => {
-    debouncedGetData()
+    //getData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
 
   useEffect(() => {
-    console.log(`data: ${data}`)
+    console.log(data)
     let cards = []
     if(data.length !== 0) {
       cards = data.map(job => {

@@ -52,10 +52,13 @@ function MainContent(){
     .then(data => setData(data))
   }
 
-  const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
+  const debouncedGetData = useCallback(
+    _.throttle(getData, 3000)
+  )
 
   useEffect(() => {
-    debouncedGetData()
+    //debouncedGetData()
+    //getData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
 

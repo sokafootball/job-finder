@@ -4,7 +4,7 @@
 }
 
 #signature{
-  text-shadow: grey 2px 2px;
+  text-shadow: var(--main-color) 2px 2px;
   font-size: 25px;
   font-weight: 800;
 }

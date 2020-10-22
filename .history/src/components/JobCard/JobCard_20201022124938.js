@@ -6,7 +6,7 @@ function JobCard(props){
   return (
     <div id="card">
       <div id="header">
-        <a id="title" href={props.url} target="_blank" rel="noreferrer">{props.title}</a>
+        <a id="title" href={props.url} target="_blank" >{props.title}</a>
         <p id="date">{props.date}</p>
       </div>
       <div id="details">

@@ -1,39 +1,25 @@
 #card {
-  border: 2px solid black;
+  align-items: center;
+  border: 1px solid black;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   height: 200px;
   justify-content: space-around;
   margin: 10px;
-  padding: 10px 20px;
+  padding: 5px;
   width: 800px;
 }
 
 #company-div{
   align-items: center;
   display: flex;
-  height: 100px;
   justify-content: left;
 }
 
 #company-logo{
   width: 100px;
   height: auto;
-  max-height: 100px;
-}
-
-#company-name{
-  font-size: 20px;
-  margin-left: 20px;
-}
-
-#description{
-    display: block;
-    width: 100px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 #details{
@@ -46,16 +32,8 @@
   display: flex;
 }
 
-#separator{
-  white-space: pre;
-}
-
 #title{
   font-size: 20px;
   font-weight: bold;
   text-decoration: underline;
-}
-
-#type{
-  font-weight: bold;
 }

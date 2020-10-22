@@ -1,0 +1,13 @@
+#card {
+  display: flex;
+  flex-direction: column;
+}
+
+#company-logo{
+  width: 200px;
+  height: auto;
+}
+
+#header{
+  display: flex;
+}

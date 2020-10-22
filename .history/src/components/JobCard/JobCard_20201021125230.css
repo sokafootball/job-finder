@@ -1,0 +1,34 @@
+#card {
+  border: 1px solid black;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+#company-div{
+  align-items: center;
+  display: flex;
+  justify-content: left;
+}
+
+#company-logo{
+  width: 100px;
+  height: auto;
+}
+
+#details{
+  display: flex;
+  justify-content: left;
+}
+
+#header{
+  justify-content: space-between;
+  display: flex;
+}
+
+#title{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}

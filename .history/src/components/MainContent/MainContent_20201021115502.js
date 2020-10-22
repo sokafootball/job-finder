@@ -73,7 +73,6 @@ function MainContent(){
           type={job.type}
           title={job.title}
           url={job.url}
-          description={job.description}
         />
      })
     }

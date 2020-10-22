@@ -1,5 +1,5 @@
 #card {
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -20,11 +20,9 @@
 #company-logo{
   width: 100px;
   height: auto;
-  max-height: 100px;
 }
 
 #company-name{
-  font-size: 20px;
   margin-left: 20px;
 }
 
@@ -46,16 +44,8 @@
   display: flex;
 }
 
-#separator{
-  white-space: pre;
-}
-
 #title{
   font-size: 20px;
   font-weight: bold;
   text-decoration: underline;
-}
-
-#type{
-  font-weight: bold;
 }

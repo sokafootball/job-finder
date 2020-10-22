@@ -1,0 +1,15 @@
+#card {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#company-logo{
+  width: 100px;
+  height: auto;
+}
+
+#header{
+  align-items: space-between;
+  display: flex;
+}

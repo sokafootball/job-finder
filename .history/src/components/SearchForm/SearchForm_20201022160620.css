@@ -1,0 +1,12 @@
+.input-text {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 800px
+}
+

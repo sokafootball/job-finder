@@ -4,6 +4,7 @@ import './SearchForm.css';
 function SearchForm(props){
   return (
     <div id="form-container">
+      <div id="fields-container">
         <input
           class="input-text"
           name="description"

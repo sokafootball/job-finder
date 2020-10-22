@@ -20,6 +20,12 @@ function SearchForm(props){
           placeholder="Es. San Francisco"
           value={props.userInput.location}
         />
+        <input
+          name="fullTime"
+          type="checkbox"
+          onChange={e => props.handleFormChange(e)}
+          checked={props.userInput.fullTime}
+        />
     </div>
   )
 }

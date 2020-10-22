@@ -1,20 +1,20 @@
-input{
-  cursor: pointer;
-}
-
 .input-text {
   border: 2px solid black;
   border-radius: 30px;
   height: 60px;
-  outline: none;
   padding: 0px 20px;
   width: 40%;
 }
 
-#form-container{
+#fields-container{
   display: flex;
   justify-content: space-around;
-  margin: 30px;
-  width: 800px;
+}
+
+#form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 800px
 }
 

@@ -8,13 +8,12 @@ input{
   height: 60px;
   outline: none;
   padding: 0px 20px;
-  width: 40%;
+  width: 30%;
 }
 
 #form-container{
   display: flex;
   justify-content: space-around;
-  margin: 30px;
-  width: 800px;
+  width: 800px
 }
 

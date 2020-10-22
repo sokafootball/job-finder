@@ -14,7 +14,6 @@ input{
 #form-container{
   display: flex;
   justify-content: space-around;
-  margin: 30px;
-  width: 800px;
+  width: 800px
 }
 

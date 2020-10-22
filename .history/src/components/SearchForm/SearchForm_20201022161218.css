@@ -11,10 +11,15 @@ input{
   width: 40%;
 }
 
-#form-container{
+#fields-container{
   display: flex;
   justify-content: space-around;
-  margin: 30px;
-  width: 800px;
+}
+
+#form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 800px
 }
 

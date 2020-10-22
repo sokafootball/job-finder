@@ -4,6 +4,7 @@ import './SearchForm.css';
 function SearchForm(props){
   return (
     <div id="form-container">
+      <div id="fields-containter">
         <input
           class="input-text"
           name="description"
@@ -20,6 +21,13 @@ function SearchForm(props){
           placeholder="Es. San Francisco"
           value={props.userInput.location}
         />
+      </div>
+      <input
+        name="fullTime"
+        type="checkbox"
+        onChange={e => props.handleFormChange(e)}
+        checked={props.userInput.fullTime}
+      />
     </div>
   )
 }

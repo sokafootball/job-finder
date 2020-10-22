@@ -21,10 +21,12 @@ function MainContent(){
   }
 
   const buildUrl = () => {
+    console.log(userInput)
     let url = "https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""
+    console.log(`i will query this url: ${url}`)
     return url
     }
 
@@ -43,6 +45,7 @@ function MainContent(){
   }, [userInput])
 
   useEffect(() => {
+    console.log(data)
     let cards = []
     if(data.length !== 0) {
       cards = data.map(job => {

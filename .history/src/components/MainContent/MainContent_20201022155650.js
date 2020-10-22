@@ -43,6 +43,7 @@ function MainContent(){
   }, [userInput])
 
   useEffect(() => {
+    console.log(data)
     let cards = []
     if(data.length !== 0) {
       cards = data.map(job => {

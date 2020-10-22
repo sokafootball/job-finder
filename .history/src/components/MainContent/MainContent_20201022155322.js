@@ -21,14 +21,17 @@ function MainContent(){
   }
 
   const buildUrl = () => {
+    console.log(userInput)
     let url = "https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""
+    console.log(`i will query this url: ${url}`)
     return url
     }
 
-  const getData = url => {
+  const getData = () => {
+    const url = buildUrl()
     fetch(url)
     .then(response => response.json())
     .then(data => setData(data))
@@ -37,12 +40,12 @@ function MainContent(){
   const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
 
   useEffect(() => {
-    const url = buildUrl()
-    debouncedGetData(url)
+    debouncedGetData()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
 
   useEffect(() => {
+    console.log(data)
     let cards = []
     if(data.length !== 0) {
       cards = data.map(job => {

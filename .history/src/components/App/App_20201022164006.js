@@ -6,11 +6,11 @@ import MainContent from "../MainContent/MainContent"
 
 function App() {
   return (
-    <div id="main-div"style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+    <>
       <Header />
       <MainContent />
       <Footer />
-    </div>
+    </>
   );
 }
 

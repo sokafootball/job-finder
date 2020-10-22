@@ -3,7 +3,9 @@ import './Header.css';
 
 function Header(){
   return (
-      <p id="title">Find Jobs @ https://jobs.github.com/</p>
+    <div>
+      Find Jobs @ https://jobs.github.com/
+    </div>
   )
 }
 

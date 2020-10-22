@@ -3,9 +3,10 @@ import './SearchForm.css';
 
 function SearchForm(props){
   return (
+    <p id="title">Find Jobs from https://jobs.github.com/</p>
     <div id="form-container">
         <input
-          className="input-text"
+          class="input-text"
           name="description"
           type="text"
           onChange={e => props.handleFormChange(e)}
@@ -13,7 +14,7 @@ function SearchForm(props){
           value={props.userInput.description}
         />
         <input
-          className="input-text"
+          class="input-text"
           name="location"
           type="text"
           onChange={e => props.handleFormChange(e)}

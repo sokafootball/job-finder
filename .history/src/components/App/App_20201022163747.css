@@ -37,9 +37,7 @@
   }
 }
 
-#main-div{
-  align-items: center;
+#all-content{
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }

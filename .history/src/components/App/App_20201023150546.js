@@ -3,6 +3,7 @@ import './App.css';
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import MainContent from "../MainContent/MainContent"
+import Background from "../../background.jpg"
 
 function App() {
 

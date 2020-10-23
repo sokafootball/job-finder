@@ -9,11 +9,10 @@ function App() {
 
 
   const style ={
-    backgroundColor: "hsl(206, 29%, 66%)"
+    color: "206, 29%, 66%"
   }
-
   return (
-    <div id="main-div">
+    <div id="main-div" style={{style}}>
       <Header />
       <MainContent />
       <Footer />

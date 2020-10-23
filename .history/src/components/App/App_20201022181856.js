@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div id="main-div">
+    <div id="main-div" style={{backgroundColor: "hsl(206, 29%, 66%)"}}>
       <Header />
       <MainContent />
       <Footer />

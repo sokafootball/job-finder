@@ -4,7 +4,7 @@
   --font-color: #564256;
   --border-color: #564256;
   --job-title-color: #fc814a;
-  --card-element-gap: 10px;
+  --card-padding: 10px;
 }
 
 .App {

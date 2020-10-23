@@ -7,11 +7,6 @@ import Background from "../../background.jpg"
 
 function App() {
 
-
-  const style ={
-    backgroundColor: "hsl(206, 29%, 66%)"
-  }
-
   return (
     <div id="main-div">
       <Header />

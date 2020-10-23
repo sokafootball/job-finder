@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div id="main-div">
+    <div id="main-div" style={}>
       <Header />
       <MainContent />
       <Footer />

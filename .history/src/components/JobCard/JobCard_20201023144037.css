@@ -21,7 +21,7 @@
   display: flex;
   height: 100px;
   justify-content: left;
-  margin: 0 0 var(--card-element-gap) var(--card-element-gap)
+  margin: 0 0 margin-left: var(--card-element-gap) var(--card-element-gap)
 }
 
 #company-logo{
@@ -32,7 +32,6 @@
 
 #company-name{
   font-size: 20px;
-  font-weight: bold;
   margin-left: 20px;
 }
 

@@ -1,10 +1,8 @@
 :root{
   --background-color: #E8E8E8;
-  --cards-bg-color: white;
+  --cards-bg-color: #96939B;
   --font-color: #564256;
   --border-color: #564256;
-  --job-title-color: #fc814a;
-  --card-element-gap: 10px;
 }
 
 .App {

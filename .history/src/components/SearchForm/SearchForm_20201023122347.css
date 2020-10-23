@@ -3,10 +3,9 @@ input{
 }
 
 .input-text {
-  background-color: var(--cards-bg-color);
-  border: 2px solid var(--border-color);
+  border: 2px solid black;
   border-radius: 30px;
-  color: var(--font-color);
+  color: var(font-color);
   font-size: 20px;
   height: 60px;
   outline: none;

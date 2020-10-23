@@ -5,15 +5,10 @@
   display: flex;
   flex-direction: column;
   height: 200px;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 10px;
+  padding: 10px 20px;
   width: 800px;
-}
-
-#card-header{
-  background-color: var(--border-color);
-  border-radius: 5px 5px 0px 0px;
-  color: var(--job-title-color)
 }
 
 #company-div{
@@ -21,7 +16,6 @@
   display: flex;
   height: 100px;
   justify-content: left;
-  margin: 0 0 var(--card-element-gap) var(--card-element-gap)
 }
 
 #company-logo{
@@ -32,7 +26,6 @@
 
 #company-name{
   font-size: 20px;
-  font-weight: bold;
   margin-left: 20px;
 }
 
@@ -47,13 +40,11 @@
 #details{
   display: flex;
   justify-content: left;
-  margin-left: var(--card-element-gap)
 }
 
 #card-header{
   justify-content: space-between;
   display: flex;
-  padding: var(--card-element-gap);
 }
 
 #separator{
@@ -61,7 +52,6 @@
 }
 
 #job-title{
-  color: var(--job-title-color);
   font-size: 20px;
   font-weight: bold;
   text-decoration: underline;

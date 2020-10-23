@@ -7,13 +7,12 @@ import Background from "../../background.jpg"
 
 function App() {
 
-
-  const style ={
-    backgroundColor: "hsl(206, 29%, 66%)"
+  const style = {
+    backgroundImage: `url(${Background})`,
   }
 
   return (
-    <div id="main-div">
+    <div id="main-div" style={style}>
       <Header />
       <MainContent />
       <Footer />

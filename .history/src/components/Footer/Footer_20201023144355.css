@@ -5,7 +5,7 @@
 
 #signature{
   color:var(--job-title-color);
-  text-shadow: var(--border-color) 2px 2px;
+  text-shadow: var(--border-color) 3px 3px;
   font-size: 25px;
   font-weight: 800;
 }

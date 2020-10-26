@@ -21,7 +21,7 @@ function MainContent(){
   }
 
   const buildUrl = () => {
-    let url = "https://jobs.github.com/positions.json?"
+    let url = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""

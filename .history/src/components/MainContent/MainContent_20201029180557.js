@@ -78,7 +78,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <Error/>}
+        {gotResponse ? jobCards : <div><p id="error">Sorry, it seems the server has some issues, please try again later.</p><img  src="https://media4.giphy.com/media/gL9jHlvagKls6T3qDM/giphy.gif?cid=ecf05e47fivgmlfh8mqjnvcsyrei045xsduofeg4nfjwlztw&rid=giphy.gif"></img></div>}
       </div>
     )
 }

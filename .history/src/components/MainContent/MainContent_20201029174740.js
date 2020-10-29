@@ -3,7 +3,6 @@ import _ from 'lodash';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
 import JobCard from "../JobCard/JobCard"
-import Error from "../Error/Error"
 
 function MainContent(){
   const[jobCards, setJobCards] = useState([])
@@ -78,7 +77,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <Error/>}
+        {gotResponse ? jobCards : <p id="error">Sorry, it seems the server has some issues, please try again later.</p>}
       </div>
     )
 }

@@ -3,7 +3,6 @@ import _ from 'lodash';
 import './MainContent.css';
 import SearchForm from "../SearchForm/SearchForm"
 import JobCard from "../JobCard/JobCard"
-import Error from "../Error/Error"
 
 function MainContent(){
   const[jobCards, setJobCards] = useState([])
@@ -78,7 +77,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <Error/>}
+        {gotResponse ? jobCards : <div><p id="error">Sorry, it seems the server has some issues, please try again later.</p><div class="tenor-gif-embed" data-postid="5399276" data-share-method="host" data-width="100%" data-aspect-ratio="1.0"><a href="https://tenor.com/view/kitty-roll-silly-cartoon-cat-gif-5399276"></a><a href="https://tenor.com/search/kitty-gifs"></a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script></div>}
       </div>
     )
 }

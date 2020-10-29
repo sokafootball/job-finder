@@ -1,11 +1,12 @@
 #footer{
+  align-self: flex-end;
   font-size: 22px;
   margin: 20px 0px 30px 0px;
 }
 
 #signature{
-  color:var(--border-color);
-  text-shadow: var(--job-title-color) 2px 2px;
+  color:var(--job-title-color);
+  text-shadow: var(--border-color) 2px 2px;
   font-size: 25px;
   font-weight: 800;
 }

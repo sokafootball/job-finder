@@ -35,11 +35,9 @@ function MainContent(){
       if (response.status === 500){
         setGotResponse(false)
       }
-      else{
-        response.json()
-        .then(data => setData(data))
-      }
+      response.json()
     })
+    .then(data => setData(data))
   }
 
   const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
@@ -77,7 +75,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <p>Sorry, it seems the server has some issues, please try again later.</p>}
+        {jobCards}
       </div>
     )
 }

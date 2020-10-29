@@ -7,6 +7,7 @@ import JobCard from "../JobCard/JobCard"
 function MainContent(){
   const[jobCards, setJobCards] = useState([])
   const[data, setData] = useState([])
+  const[gotResponse, setGotResponse] = useState(true)
   const[userInput, setUserInput] = useState({
     description: "",
     location: "",
@@ -21,7 +22,7 @@ function MainContent(){
   }
 
   const buildUrl = () => {
-    let url = "https://jobs.github.com/positions.json?"
+    let url = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?"
     url += userInput.description ? `&description=${userInput.description}` : ""
     url += userInput.location ? `&location=${userInput.location}` : ""
     url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ""
@@ -30,8 +31,15 @@ function MainContent(){
 
   const getData = url => {
     fetch(url)
-    .then(response => response.json())
-    .then(data => setData(data))
+    .then(response => {
+      if (response.status === 500){
+        setGotResponse(false)
+      }
+      else{
+        response.json()
+        .then(data => setData(data))
+      }
+    })
   }
 
   const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
@@ -69,7 +77,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {jobCards}
+        {gotResponse ? jobCards : "error"}
       </div>
     )
 }

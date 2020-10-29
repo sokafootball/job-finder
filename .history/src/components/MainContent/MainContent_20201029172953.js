@@ -77,7 +77,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <p>Sorry, it seems the server has some issues, please try again later.</p>}
+        {jobCards}
       </div>
     )
 }

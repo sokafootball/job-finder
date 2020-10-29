@@ -7,7 +7,6 @@ import JobCard from "../JobCard/JobCard"
 function MainContent(){
   const[jobCards, setJobCards] = useState([])
   const[data, setData] = useState([])
-  const[gotResponse, setGotResponse] = useState(true)
   const[userInput, setUserInput] = useState({
     description: "",
     location: "",
@@ -30,16 +29,10 @@ function MainContent(){
     }
 
   const getData = url => {
+    console.log(url)
     fetch(url)
-    .then(response => {
-      if (response.status === 500){
-        setGotResponse(false)
-      }
-      else{
-        response.json()
-        .then(data => setData(data))
-      }
-    })
+    .then(response => response.json())
+    .then(data => setData(data))
   }
 
   const debouncedGetData = useCallback(_.debounce(getData, 1500,{leading: true}),[])
@@ -77,7 +70,7 @@ function MainContent(){
           handleFormChange={handleFormChange}
           userInput={userInput}
         />
-        {gotResponse ? jobCards : <p>Sorry, it seems the server has some issues, please try again later.</p>}
+        {jobCards}
       </div>
     )
 }

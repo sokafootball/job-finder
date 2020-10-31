@@ -1,9 +1,0 @@
-#card {
-  display: flex;
-  flex-direction: column;
-}
-
-#company-logo{
-  width: 100px;
-  height: auto;
-}

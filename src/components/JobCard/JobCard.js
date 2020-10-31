@@ -1,12 +1,18 @@
-import React from 'react';
-import './JobCard.css';
+import './JobCard.css'
+import React from 'react'
 
-function JobCard(props){
-
+function JobCard(props) {
   return (
     <div id="card">
       <div id="card-header">
-        <a id="job-title" href={props.url} target="_blank" rel="noopener noreferrer">{props.title}</a>
+        <a
+          id="job-title"
+          href={props.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {props.title}
+        </a>
         <p id="date">{props.date}</p>
       </div>
       <div id="details">

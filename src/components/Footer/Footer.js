@@ -1,9 +1,11 @@
-import React from 'react';
-import './Footer.css';
+import './Footer.css'
+import React from 'react'
 
-function Footer(){
+function Footer() {
   return (
-    <p id="footer">A page by <span id="signature">Laurent Capello</span></p>
+    <p id="footer">
+      A page by <span id="signature">Laurent Capello</span>
+    </p>
   )
 }
 

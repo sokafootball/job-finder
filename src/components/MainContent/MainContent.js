@@ -1,8 +1,8 @@
 import './MainContent.css'
+import { SearchForm } from '../SearchForm/SearchForm'
 import Error from '../Error/Error'
 import JobCard from '../JobCard/JobCard'
 import React, { useCallback, useEffect, useState } from 'react'
-import SearchForm from '../SearchForm/SearchForm'
 import _ from 'lodash'
 
 function MainContent() {

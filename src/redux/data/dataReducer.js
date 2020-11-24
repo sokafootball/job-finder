@@ -9,7 +9,7 @@ const dataReducer = (state = initialState, action) => {
     case LOAD_DATA:
       return {
         ...state,
-        data =
+        data: [],
       }
     default:
       return state

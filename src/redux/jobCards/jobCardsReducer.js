@@ -1,7 +1,7 @@
 import { LOAD_JOB_CARDS } from './jobCardsTypes'
 import JobCard from '../../components/JobCard/JobCard'
 import React from 'react'
-import redux from 'redux'
+// import redux from 'redux'
 import store from '../store'
 
 const initialState = { jobCards: [] }

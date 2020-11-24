@@ -7,3 +7,8 @@
 - faccio subscribe dello store
 - passo lo store da App.js ai vari component usando react-redux.provider
 - passo lo state ed il metodo dispatch ai component usando react-redux.connect
+
+
+domande
+
+-come passo lo store ad un file in cui creo ed esporto un reducer?

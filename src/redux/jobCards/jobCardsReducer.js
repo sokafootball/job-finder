@@ -1,6 +1,8 @@
 import { LOAD_JOB_CARDS } from './jobCardsTypes'
 import JobCard from '../../components/JobCard/JobCard'
 import React from 'react'
+import redux from 'redux'
+import store from '../store'
 
 const initialState = { jobCards: [] }
 const jobCardsReducer = (state = initialState, action) => {
@@ -8,7 +10,7 @@ const jobCardsReducer = (state = initialState, action) => {
     case LOAD_JOB_CARDS:
       return {
         ...state,
-        jobCards: data.map((job) => {
+        jobCards: store.data.map((job) => {
           return (
             <JobCard
               key={job.id}

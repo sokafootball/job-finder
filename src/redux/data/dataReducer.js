@@ -1,15 +1,17 @@
-import { LOAD_DATA } from './dataTypes'
-import React from 'react'
-import redux from 'redux'
-import store from '../store'
+import { FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS } from './dataTypes'
 
-const initialState = { data: [] }
+const initialState = { data: [], gotResponse: true }
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_DATA:
+    case FETCH_DATA_SUCCESS:
       return {
         ...state,
-        data: [],
+        data: action.payload,
+      }
+    case FETCH_DATA_FAILURE:
+      return {
+        ...state,
+        gotResponse: false,
       }
     default:
       return state

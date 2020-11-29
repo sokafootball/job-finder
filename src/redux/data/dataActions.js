@@ -23,15 +23,18 @@ const buildUrl = (description, location) => {
   return url
 }
 
-export const fetchData = (description, location) => (dispatch) => {
-  //wrappa in debounce
-  fetch(buildUrl(description, location))
-    .then((response) => {
-      response.json().then((data) => dispatch(fetchDataSuccess(data)))
-    })
-    .catch((error) => {
-      dispatch(fetchDataFailure(error))
-    })
-}
-
-// _.debounce(getData, 1500, { leading: true })
+export const fetchData = _.debounce(
+  (description, location) => (dispatch) => {
+    console.log(`fetching...`)
+    //wrappa in debounce
+    fetch(buildUrl(description, location))
+      .then((response) => {
+        response.json().then((data) => dispatch(fetchDataSuccess(data)))
+      })
+      .catch((error) => {
+        dispatch(fetchDataFailure(error))
+      })
+  },
+  1500,
+  { leading: true }
+)

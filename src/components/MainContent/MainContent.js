@@ -5,27 +5,23 @@ import { fetchData } from '../../redux/data/dataActions'
 import { updateUserInput } from '../../redux/userInput/userInputActions'
 import Error from '../Error/Error'
 import JobCard from '../JobCard/JobCard'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import _ from 'lodash'
 
 function MainContent({ data, userInput, fetchData, updateUserInput }) {
-  // const [jobCards, setJobCards] = useState([])
-  // const [gotResponse, setGotResponse] = useState(true)
-
   const handleFormChange = (e) => {
-    // const { name, value } = e.target({ ...userInput, [name]: value })
     const { name, value } = e.target
     const newUserInput = { ...userInput, [name]: value }
     updateUserInput(newUserInput)
   }
 
   useEffect(() => {
-    console.log('fetching data after component mounted')
+    // console.log('fetching data after component mounted')
     fetchData(userInput.description, userInput.location)
   }, [])
 
   useEffect(() => {
-    console.log('fetching data after change of input')
+    // console.log('fetching data after change of input')
     fetchData(userInput.description, userInput.location)
   }, [userInput])
 
@@ -80,7 +76,6 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
   //   setJobCards(cards)
   // }, [data])
   const buildJobCards = () => {
-    console.log(data)
     let jobCards = []
     if (data.data !== undefined) {
       jobCards = data.data.map((job) => {
@@ -105,7 +100,6 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
   return (
     <div id="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
-      {/* {gotResponse ? jobCards : <Error />} */}
       {data.gotResponse ? buildJobCards() : <Error />}
     </div>
   )

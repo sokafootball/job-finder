@@ -1,12 +1,12 @@
-import { combineReducers, createStore } from 'redux'
-import dataReducer from './data/dataReducer'
-import jobCardsReducer from './jobCards/jobCardsReducer'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 
-const { applyMiddleware } = redux
+import dataReducer from './data/dataReducer'
+import userInputReducer from './userInput/userInputReducer'
+
 const thunkMiddleware = require('redux-thunk').default
 
 const rootReducer = combineReducers({
-  jobCards: jobCardsReducer,
+  userInput: userInputReducer,
   data: dataReducer,
 })
 

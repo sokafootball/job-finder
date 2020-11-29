@@ -17,8 +17,17 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
     const { name, value } = e.target
     const newUserInput = { ...userInput, [name]: value }
     updateUserInput(newUserInput)
-    fetchData(userInput.description, userInput.location)
   }
+
+  useEffect(() => {
+    console.log('fetching data after component mounted')
+    fetchData(userInput.description, userInput.location)
+  }, [])
+
+  useEffect(() => {
+    console.log('fetching data after change of input')
+    fetchData(userInput.description, userInput.location)
+  }, [userInput])
 
   // const buildUrl = () => {
   //   let url =
@@ -71,8 +80,9 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
   //   setJobCards(cards)
   // }, [data])
   const buildJobCards = () => {
-    const jobCards = []
-    if (data.data.length !== 0) {
+    console.log(data)
+    let jobCards = []
+    if (data.data !== undefined) {
       jobCards = data.data.map((job) => {
         return (
           <JobCard
@@ -113,7 +123,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchData: (description, location) =>
       dispatch(fetchData(description, location)),
     updateUserInput: (userInput) => {
-      console.log(`dispatching ...${userInput}`)
+      // console.log(`dispatching ...${userInput}`)
       dispatch(updateUserInput(userInput))
     },
   }

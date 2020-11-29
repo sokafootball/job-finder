@@ -1,8 +1,11 @@
 import { FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS } from './dataTypes'
+import { useCallback, useEffect, useState } from 'react'
+import _ from 'lodash'
 
-export const fetchDataSuccess = () => {
+export const fetchDataSuccess = (data) => {
   return {
     type: FETCH_DATA_SUCCESS,
+    payload: data,
   }
 }
 
@@ -17,7 +20,6 @@ const buildUrl = (description, location) => {
     'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?'
   url += description ? `&description=${description}` : ''
   url += location ? `&location=${location}` : ''
-  // url += fullTime ? `&full_time=${fullTime}` : ''
   return url
 }
 
@@ -31,3 +33,5 @@ export const fetchData = (description, location) => (dispatch) => {
       dispatch(fetchDataFailure(error))
     })
 }
+
+// _.debounce(getData, 1500, { leading: true })

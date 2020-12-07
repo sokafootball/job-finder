@@ -1,6 +1,4 @@
 import { FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS } from './dataTypes'
-import { useCallback, useEffect, useState } from 'react'
-import _ from 'lodash'
 
 export const fetchDataSuccess = (data) => {
   return {
@@ -23,18 +21,13 @@ const buildUrl = (description, location) => {
   return url
 }
 
-export const fetchData = _.debounce(
-  (description, location) => (dispatch) => {
-    console.log(`fetching...`)
-    //wrappa in debounce
-    fetch(buildUrl(description, location))
-      .then((response) => {
-        response.json().then((data) => dispatch(fetchDataSuccess(data)))
-      })
-      .catch((error) => {
-        dispatch(fetchDataFailure(error))
-      })
-  },
-  1500,
-  { leading: true }
-)
+export const fetchData = (description, location) => async (dispatch) => {
+  console.log(`fetching...`)
+  try {
+    const response = await fetch(buildUrl(description, location))
+    const data = await response.json()
+    dispatch(fetchDataSuccess(data))
+  } catch (err) {
+    dispatch(fetchDataFailure(err))
+  }
+}

@@ -5,8 +5,8 @@ import { fetchData } from '../../redux/data/dataActions'
 import { updateUserInput } from '../../redux/userInput/userInputActions'
 import Error from '../Error/Error'
 import JobCard from '../JobCard/JobCard'
-import React, { useEffect } from 'react'
-import _ from 'lodash'
+import React, { useCallback, useEffect } from 'react'
+import debounce from 'lodash/debounce'
 
 function MainContent({ data, userInput, fetchData, updateUserInput }) {
   const handleFormChange = (e) => {
@@ -15,66 +15,15 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
     updateUserInput(newUserInput)
   }
 
-  useEffect(() => {
-    // console.log('fetching data after component mounted')
-    fetchData(userInput.description, userInput.location)
-  }, [])
+  const debouncedFetchData = useCallback(
+    debounce((description, location) => fetchData(description, location), 1000),
+    []
+  )
 
   useEffect(() => {
-    // console.log('fetching data after change of input')
-    fetchData(userInput.description, userInput.location)
-  }, [userInput])
+    debouncedFetchData(userInput.description, userInput.location)
+  }, [debouncedFetchData, userInput])
 
-  // const buildUrl = () => {
-  //   let url =
-  //     'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?'
-  //   url += userInput.description ? `&description=${userInput.description}` : ''
-  //   url += userInput.location ? `&location=${userInput.location}` : ''
-  //   return url
-  // }
-
-  // const getData = (url) => {
-  //   fetch(url).then((response) => {
-  //     if (response.status === 500) {
-  //       setGotResponse(false)
-  //     } else {
-  //       response.json().then((data) => setData(data))
-  //     }
-  //   })
-  // }
-
-  // const debouncedGetData = useCallback(
-  //   _.debounce(getData, 1500, { leading: true }),
-  //   []
-  // )
-
-  // useEffect(() => {
-  // const url = buildUrl()
-  // debouncedGetData(url)
-  //   fetchData(userInput.description, userInput.location)
-  // }, [userInput])
-
-  // useEffect(() => {
-  //   let cards = []
-  //   if (data.length !== 0) {
-  //     cards = data.map((job) => {
-  //       return (
-  //         <JobCard
-  //           key={job.id}
-  //           date={job.created_at}
-  //           logo={job.company_logo}
-  //           company={job.company}
-  //           location={job.location}
-  //           type={job.type}
-  //           title={job.title}
-  //           url={job.url}
-  //           description={job.description}
-  //         />
-  //       )
-  //     })
-  //   }
-  //   setJobCards(cards)
-  // }, [data])
   const buildJobCards = () => {
     let jobCards = []
     if (data.data !== undefined) {

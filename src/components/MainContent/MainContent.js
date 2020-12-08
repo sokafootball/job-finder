@@ -1,22 +1,29 @@
+import {} from '../../redux'
 import './MainContent.css'
 import { SearchForm } from '../SearchForm/SearchForm'
-import { connect } from 'react-redux'
-import { fetchData } from '../../redux/data/dataActions'
-import { updateUserInput } from '../../redux/userInput/userInputActions'
+import { fetchData, updateUserInput } from '../../redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Error from '../Error/Error'
 import JobCard from '../JobCard/JobCard'
 import React, { useCallback, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 
-function MainContent({ data, userInput, fetchData, updateUserInput }) {
+function MainContent() {
+  const data = useSelector((state) => state.data)
+  const userInput = useSelector((state) => state.userInput)
+  const dispatch = useDispatch()
+
   const handleFormChange = (e) => {
     const { name, value } = e.target
     const newUserInput = { ...userInput, [name]: value }
-    updateUserInput(newUserInput)
+    dispatch(updateUserInput(newUserInput))
   }
 
   const debouncedFetchData = useCallback(
-    debounce((description, location) => fetchData(description, location), 1000),
+    debounce(
+      (description, location) => dispatch(fetchData(description, location)),
+      1000
+    ),
     []
   )
 
@@ -54,22 +61,4 @@ function MainContent({ data, userInput, fetchData, updateUserInput }) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.data,
-    userInput: state.userInput,
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (description, location) =>
-      dispatch(fetchData(description, location)),
-    updateUserInput: (userInput) => {
-      // console.log(`dispatching ...${userInput}`)
-      dispatch(updateUserInput(userInput))
-    },
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainContent)
+export default MainContent

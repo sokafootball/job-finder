@@ -2,6 +2,6 @@ export {
   fetchData,
   fetchDataSuccess,
   fetchDataFailure,
-} from './jobCards/jobCardsActions'
+} from './data/dataActions'
 
 export { updateUserInput } from './userInput/userInputActions'

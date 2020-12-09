@@ -1,5 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-
+import { composeWithDevTools } from 'redux-devtools-extension'
 import dataReducer from './data/dataReducer'
 import userInputReducer from './userInput/userInputReducer'
 
@@ -10,6 +10,8 @@ const rootReducer = combineReducers({
   data: dataReducer,
 })
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
+
+const store = createStore(rootReducer, composedEnhancer)
 
 export default store

@@ -28,4 +28,4 @@ function JobCard(props) {
   )
 }
 
-export default JobCard
+export { JobCard }

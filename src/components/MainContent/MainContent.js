@@ -1,10 +1,10 @@
 import {} from '../../redux'
 import './MainContent.css'
+import { Error } from '../Error/Error'
+import { JobCard } from '../JobCard/JobCard'
 import { SearchForm } from '../SearchForm/SearchForm'
 import { fetchData, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
-import Error from '../Error/Error'
-import JobCard from '../JobCard/JobCard'
 import React, { useCallback, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 

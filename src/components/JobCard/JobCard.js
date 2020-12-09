@@ -1,7 +1,14 @@
 import './JobCard.css'
+import { MAX_TITLE_LENGTH } from '../../shared/constants'
 import React from 'react'
 
 function JobCard(props) {
+  let title = props.title
+  title =
+    title.length > MAX_TITLE_LENGTH
+      ? `${title.slice(0, MAX_TITLE_LENGTH)}...`
+      : title
+
   return (
     <div id="card">
       <div id="card-header">
@@ -11,7 +18,7 @@ function JobCard(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {props.title}
+          {title}
         </a>
         <p id="date">{props.created_at}</p>
       </div>

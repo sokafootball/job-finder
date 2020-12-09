@@ -35,19 +35,7 @@ function MainContent() {
     let jobCards = []
     if (data.data !== undefined) {
       jobCards = data.data.map((job) => {
-        return (
-          <JobCard
-            key={job.id}
-            date={job.created_at}
-            logo={job.company_logo}
-            company={job.company}
-            location={job.location}
-            type={job.type}
-            title={job.title}
-            url={job.url}
-            description={job.description}
-          />
-        )
+        return <JobCard {...job} key={job.id} />
       })
     }
     return jobCards

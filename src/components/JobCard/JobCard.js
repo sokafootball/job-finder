@@ -13,7 +13,7 @@ function JobCard(props) {
         >
           {props.title}
         </a>
-        <p id="date">{props.date}</p>
+        <p id="date">{props.created_at}</p>
       </div>
       <div id="details">
         <span id="location">{props.location}</span>
@@ -21,7 +21,7 @@ function JobCard(props) {
         <span id="type">{props.type}</span>
       </div>
       <div id="company-div">
-        <img id="company-logo" src={props.logo} alt="N/A"></img>
+        <img id="company-logo" src={props.company_logo} alt="N/A"></img>
         <p id="company-name">{props.company}</p>
       </div>
     </div>

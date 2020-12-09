@@ -1,7 +1,7 @@
 import './SearchForm.css'
 import React from 'react'
 
-function SearchForm(props) {
+export const SearchForm = (props) => {
   return (
     <div id="form-container">
       <input
@@ -23,5 +23,3 @@ function SearchForm(props) {
     </div>
   )
 }
-
-export default SearchForm

@@ -1,82 +1,50 @@
+import {} from '../../redux'
 import './MainContent.css'
-import Error from '../Error/Error'
-import JobCard from '../JobCard/JobCard'
-import React, { useCallback, useEffect, useState } from 'react'
-import SearchForm from '../SearchForm/SearchForm'
-import _ from 'lodash'
+import { Error } from '../Error/Error'
+import { JobCard } from '../JobCard/JobCard'
+import { SearchForm } from '../SearchForm/SearchForm'
+import { fetchData, updateUserInput } from '../../redux'
+import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useEffect } from 'react'
+import debounce from 'lodash/debounce'
 
 function MainContent() {
-  const [jobCards, setJobCards] = useState([])
-  const [data, setData] = useState([])
-  const [gotResponse, setGotResponse] = useState(true)
-  const [userInput, setUserInput] = useState({
-    description: '',
-    location: '',
-    fullTime: true,
-  })
+  const data = useSelector((state) => state.data)
+  const userInput = useSelector((state) => state.userInput)
+  const dispatch = useDispatch()
 
   const handleFormChange = (e) => {
-    const { name, value, type, checked } = e.target
-    type === 'checkbox'
-      ? setUserInput({ ...userInput, [name]: checked })
-      : setUserInput({ ...userInput, [name]: value })
+    const { name, value } = e.target
+    const newUserInput = { ...userInput, [name]: value }
+    dispatch(updateUserInput(newUserInput))
   }
 
-  const buildUrl = () => {
-    let url =
-      'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?'
-    url += userInput.description ? `&description=${userInput.description}` : ''
-    url += userInput.location ? `&location=${userInput.location}` : ''
-    url += userInput.fullTime ? `&full_time=${userInput.fullTime}` : ''
-    return url
-  }
-
-  const getData = (url) => {
-    fetch(url).then((response) => {
-      if (response.status === 500) {
-        setGotResponse(false)
-      } else {
-        response.json().then((data) => setData(data))
-      }
-    })
-  }
-
-  const debouncedGetData = useCallback(
-    _.debounce(getData, 1500, { leading: true }),
+  const debouncedFetchData = useCallback(
+    debounce(
+      (description, location) => dispatch(fetchData(description, location)),
+      1000
+    ),
     []
   )
 
   useEffect(() => {
-    const url = buildUrl()
-    debouncedGetData(url)
-  }, [userInput])
+    debouncedFetchData(userInput.description, userInput.location)
+  }, [debouncedFetchData, userInput])
 
-  useEffect(() => {
-    let cards = []
-    if (data.length !== 0) {
-      cards = data.map((job) => {
-        return (
-          <JobCard
-            key={job.id}
-            date={job.created_at}
-            logo={job.company_logo}
-            company={job.company}
-            location={job.location}
-            type={job.type}
-            title={job.title}
-            url={job.url}
-            description={job.description}
-          />
-        )
+  const buildJobCards = () => {
+    let jobCards = []
+    if (data.data !== undefined) {
+      jobCards = data.data.map((job) => {
+        return <JobCard {...job} key={job.id} />
       })
     }
-    setJobCards(cards)
-  }, [data])
+    return jobCards
+  }
 
   return (
     <div id="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
-      {gotResponse ? jobCards : <Error />}
+      {data.gotResponse ? buildJobCards() : <Error />}
     </div>
   )
 }

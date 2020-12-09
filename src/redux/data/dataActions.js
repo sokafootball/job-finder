@@ -1,4 +1,5 @@
 import { FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS } from './dataTypes'
+import { buildUrl } from '../../shared/buildUrl'
 
 export const fetchDataSuccess = (data) => {
   return {
@@ -11,14 +12,6 @@ export const fetchDataFailure = () => {
   return {
     type: FETCH_DATA_FAILURE,
   }
-}
-
-const buildUrl = (description, location) => {
-  let url =
-    'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?'
-  url += description ? `&description=${description}` : ''
-  url += location ? `&location=${location}` : ''
-  return url
 }
 
 export const fetchData = (description, location) => async (dispatch) => {

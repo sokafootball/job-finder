@@ -1,18 +1,8 @@
-import { FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS } from './dataTypes'
 import { buildUrl } from '../../shared/buildUrl'
+import { createAction } from '@reduxjs/toolkit'
 
-export const fetchDataSuccess = (data) => {
-  return {
-    type: FETCH_DATA_SUCCESS,
-    payload: data,
-  }
-}
-
-export const fetchDataFailure = () => {
-  return {
-    type: FETCH_DATA_FAILURE,
-  }
-}
+export const fetchDataSuccess = createAction('FETCH_DATA_SUCCESS')
+export const fetchDataFailure = createAction('FETCH_DATA_FAILURE')
 
 export const fetchData = (description, location) => async (dispatch) => {
   console.log(`fetching...`)

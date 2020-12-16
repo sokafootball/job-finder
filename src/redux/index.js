@@ -1,7 +1,3 @@
-export {
-  fetchData,
-  fetchDataSuccess,
-  fetchDataFailure,
-} from './data/dataActions'
+export { fetchData } from './data/dataSlice'
 
 export { updateUserInput } from './userInput/userInputActions'

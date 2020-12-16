@@ -14,4 +14,4 @@ const userInputReducer = (state = initialState, action) => {
   }
 }
 
-export { userInputReducer }
+export default userInputReducer

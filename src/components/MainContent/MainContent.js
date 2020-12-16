@@ -21,7 +21,7 @@ function MainContent() {
 
   const debouncedFetchData = useCallback(
     debounce(
-      (description, location) => dispatch(fetchData(description, location)),
+      (description, location) => dispatch(fetchData({ description, location })),
       1000
     ),
     []
@@ -44,7 +44,15 @@ function MainContent() {
   return (
     <div id="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
-      {data.gotResponse ? buildJobCards() : <Error />}
+      {data.gotResponse ? (
+        data.data.length > 0 ? (
+          buildJobCards()
+        ) : (
+          <Error />
+        )
+      ) : (
+        <p>loading</p>
+      )}
     </div>
   )
 }

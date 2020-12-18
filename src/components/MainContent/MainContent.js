@@ -51,7 +51,7 @@ function MainContent() {
           <Error />
         )
       ) : (
-        <p>loading</p>
+        <p>loading...</p>
       )}
     </div>
   )

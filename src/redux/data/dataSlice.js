@@ -14,7 +14,7 @@ const fetchData = createAsyncThunk('fetchData', (payload) => {
 
 const dataSlice = createSlice({
   name: 'data',
-  initialState: { data: [], gotResponse: true },
+  initialState: { data: [], gotResponse: false },
   reducers: {},
   extraReducers: {
     [fetchData.pending]: (state) => ({

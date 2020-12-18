@@ -1,3 +1,2 @@
 export { fetchData } from './data/dataSlice'
-
-export { updateUserInput } from './userInput/userInputActions'
+export { updateUserInput } from './userInput/userInputSlice'

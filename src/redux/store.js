@@ -1,17 +1,12 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import dataReducer from './data/dataReducer'
-import userInputReducer from './userInput/userInputReducer'
+import { configureStore } from '@reduxjs/toolkit'
+import { reducer as dataSlice } from './data/dataSlice'
+import { reducer as userInputReducer } from './userInput/userInputSlice'
 
-const thunkMiddleware = require('redux-thunk').default
-
-const rootReducer = combineReducers({
+const rootReducer = {
   userInput: userInputReducer,
-  data: dataReducer,
-})
+  data: dataSlice,
+}
 
-const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
-
-const store = createStore(rootReducer, composedEnhancer)
+const store = configureStore({ reducer: rootReducer })
 
 export default store

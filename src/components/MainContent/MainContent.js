@@ -2,6 +2,7 @@ import {} from '../../redux'
 import './MainContent.css'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
+import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
 import { fetchData, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,7 +22,7 @@ function MainContent() {
 
   const debouncedFetchData = useCallback(
     debounce(
-      (description, location) => dispatch(fetchData(description, location)),
+      (description, location) => dispatch(fetchData({ description, location })),
       1000
     ),
     []
@@ -41,10 +42,20 @@ function MainContent() {
     return jobCards
   }
 
+  const chooseResult = () => {
+    if (!data.gotResponse) {
+      return <Loader />
+    } else if (data.data.length > 0) {
+      return buildJobCards()
+    } else {
+      return <Error />
+    }
+  }
+
   return (
     <div id="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
-      {data.gotResponse ? buildJobCards() : <Error />}
+      {chooseResult()}
     </div>
   )
 }

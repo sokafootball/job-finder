@@ -32,6 +32,5 @@ const dataSlice = createSlice({
     }),
   },
 })
-
-export { fetchData }
-export default dataSlice.reducer
+const { reducer } = dataSlice
+export { fetchData, reducer }

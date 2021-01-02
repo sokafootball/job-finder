@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import dataSlice from './data/dataSlice'
-import userInputReducer from './userInput/userInputSlice'
+import { reducer as dataSlice } from './data/dataSlice'
+import { reducer as userInputReducer } from './userInput/userInputSlice'
 
 const rootReducer = {
   userInput: userInputReducer,

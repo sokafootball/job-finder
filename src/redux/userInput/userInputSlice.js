@@ -13,4 +13,4 @@ const userInputSlice = createSlice({
 })
 
 export const { updateUserInput } = userInputSlice.actions
-export default userInputSlice.reducer
+export const { reducer } = userInputSlice

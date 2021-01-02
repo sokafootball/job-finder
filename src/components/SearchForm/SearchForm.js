@@ -1,4 +1,4 @@
-import './SearchForm.css'
+import './SearchForm.scss'
 import React from 'react'
 
 export const SearchForm = (props) => {

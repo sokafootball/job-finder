@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { Provider } from 'react-redux'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'

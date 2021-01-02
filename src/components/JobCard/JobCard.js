@@ -1,4 +1,4 @@
-import './JobCard.css'
+import './JobCard.scss'
 import { MAX_TITLE_LENGTH } from '../../shared/constants'
 import React from 'react'
 

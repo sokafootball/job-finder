@@ -1,10 +1,10 @@
-import './Footer.css'
+import './Footer.scss'
 import React from 'react'
 
 function Footer() {
   return (
-    <p id="footer">
-      A page by <span id="signature">Laurent Capello</span>
+    <p className="footer">
+      A page by <span className="footer__signature">Laurent Capello</span>
     </p>
   )
 }

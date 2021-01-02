@@ -1,5 +1,5 @@
 import {} from '../../redux'
-import './MainContent.css'
+import './MainContent.scss'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
 import { Loader } from '../Loader/Loader'

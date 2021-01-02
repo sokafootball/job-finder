@@ -2,6 +2,7 @@ import {} from '../../redux'
 import './MainContent.css'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
+import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
 import { fetchData, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
@@ -51,7 +52,7 @@ function MainContent() {
           <Error />
         )
       ) : (
-        <p>loading...</p>
+        <Loader />
       )}
     </div>
   )

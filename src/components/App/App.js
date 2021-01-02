@@ -9,7 +9,7 @@ import store from '../../redux/store'
 function App() {
   return (
     <Provider store={store}>
-      <div id="main-div">
+      <div className="main-div">
         <Header />
         <MainContent />
         <Footer />

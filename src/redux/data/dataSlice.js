@@ -1,13 +1,13 @@
 import { buildUrl } from '../../shared/buildUrl'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const fetchData = createAsyncThunk('fetchData', (payload) => {
-  return fetch(buildUrl(payload.description, payload.location))
-    .then((response) => {
-      if (!response.ok) throw Error(response.statusText)
-      return response.json()
-    })
-    .then((json) => json)
+const fetchData = createAsyncThunk('fetchData', async (payload) => {
+  // return fetch(buildUrl(payload.description, payload.location)).then(
+  const response = await fetch(buildUrl(payload.description, payload.location))
+  if (!response.ok) {
+    throw Error(response.statusText)
+  }
+  return response.json()
 })
 
 const dataSlice = createSlice({

@@ -53,7 +53,7 @@ function MainContent() {
   }
 
   return (
-    <div id="main">
+    <div className="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
       {chooseResult()}
     </div>

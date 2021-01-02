@@ -42,18 +42,20 @@ function MainContent() {
     return jobCards
   }
 
+  const chooseResult = () => {
+    if (!data.gotResponse) {
+      return <Loader />
+    } else if (data.data.length > 0) {
+      return buildJobCards()
+    } else {
+      return <Error />
+    }
+  }
+
   return (
     <div id="main">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
-      {data.gotResponse ? (
-        data.data.length > 0 ? (
-          buildJobCards()
-        ) : (
-          <Error />
-        )
-      ) : (
-        <Loader />
-      )}
+      {chooseResult()}
     </div>
   )
 }

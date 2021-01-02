@@ -1,0 +1,27 @@
+:root{
+  --background-color: #E8E8E8;
+  --cards-bg-color: white;
+  --font-color: #564256;
+  --border-color: #564256;
+  --job-title-color: #fc814a;
+  --card-element-gap: 10px;
+  background-color: var(--background-color);
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+#main-div{
+  background-color: var(--background-color);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--font-color);
+}
+
+#root{
+  height: 100%;
+}

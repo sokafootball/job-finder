@@ -2,8 +2,6 @@ import { buildUrl } from '../../shared/buildUrl'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const fetchData = createAsyncThunk('fetchData', (payload) => {
-  console.log(`fetching...`)
-  console.log(payload)
   return fetch(buildUrl(payload.description, payload.location))
     .then((response) => {
       if (!response.ok) throw Error(response.statusText)

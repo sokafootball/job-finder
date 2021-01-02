@@ -1,14 +1,18 @@
 @import "../../shared/variables.scss";
 
-input{
-  cursor: pointer;
+.search-form{
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+  width: 800px;
 }
 
-.input-text {
+.search-form__input-text {
   background-color: $cards-bg-color;
   border: 2px solid $border-color;
   border-radius: 30px;
   color: $font-color;
+  cursor: pointer;
   font-size: 20px;
   height: 60px;
   outline: none;
@@ -16,10 +20,4 @@ input{
   width: 40%;
 }
 
-#form-container{
-  display: flex;
-  justify-content: space-around;
-  margin: 30px;
-  width: 800px;
-}
 

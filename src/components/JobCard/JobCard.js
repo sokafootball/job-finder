@@ -10,30 +10,30 @@ function JobCard(props) {
       : title
 
   return (
-    <div className="card">
-      <div className="card__header">
+    <div className="job-card">
+      <div className="job-card__header">
         <a
-          className="card__title"
+          className="job-card__title"
           href={props.url}
           target="_blank"
           rel="noopener noreferrer"
         >
           {title}
         </a>
-        <p className="card__date">{props.created_at}</p>
+        <p className="job-card__date">{props.created_at}</p>
       </div>
-      <div className="card__details">
-        <span className="card__location">{props.location}</span>
-        <span className="card__separator "> - </span>
-        <span className="card__type">{props.type}</span>
+      <div className="job-card__details">
+        <span className="job-card__location">{props.location}</span>
+        <span className="job-card__separator "> - </span>
+        <span className="job-card__type">{props.type}</span>
       </div>
-      <div className="card__company-div">
+      <div className="job-card__company-div">
         <img
-          className="card__company-logo"
+          className="job-card__company-logo"
           src={props.company_logo}
           alt="N/A"
         ></img>
-        <p className="card__company-name">{props.company}</p>
+        <p className="job-card__company-name">{props.company}</p>
       </div>
     </div>
   )

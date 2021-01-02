@@ -1,6 +1,6 @@
 @import "../../shared/variables.scss";
 
-.card {
+.job-card {
   background-color:  $cards-bg-color;
   border: 2px solid $border-color;
   border-radius: 10px;
@@ -12,13 +12,13 @@
   width: 800px;
 }
 
-.card__header{
+.job-card__header{
   background-color: $border-color;
   border-radius: 5px 5px 0px 0px;
   color: $job-title-color
 }
 
-.card__company-div{
+.job-card__company-div{
   align-items: center;
   display: flex;
   height: 100px;
@@ -26,49 +26,41 @@
   margin: 0 0 $card-element-gap $card-element-gap
 }
 
-.card__company-logo{
+.job-card__company-logo{
   width: 100px;
   height: auto;
   max-height: 100px;
 }
 
-.card__company-name{
+.job-card__company-name{
   font-size: 20px;
   font-weight: bold;
   margin-left: 20px;
 }
 
-.description{
-    display: block;
-    width: 100px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.card__details{
+.job-card__details{
   display: flex;
   justify-content: left;
   margin-left: $card-element-gap
 }
 
-.card__header{
+.job-card__header{
   justify-content: space-between;
   display: flex;
   padding: $card-element-gap;
 }
 
-.card__separator{
+.job-card__separator{
   white-space: pre;
 }
 
-.card__title{
+.job-card__title{
   color: $job-title-color;
   font-size: 20px;
   font-weight: bold;
   text-decoration: underline;
 }
 
-.card__type{
+.job-card__type{
   font-weight: bold;
 }

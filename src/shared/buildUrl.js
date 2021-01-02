@@ -1,6 +1,6 @@
 export const buildUrl = (description, location) => {
   const url =
-    'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
+    'https://laurent-cors-proxy.herokuapp.com/https://jobs.github.com/positions.json'
   const params = Object.entries({
     description: description,
     location: location,

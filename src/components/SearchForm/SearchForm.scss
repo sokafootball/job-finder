@@ -1,0 +1,23 @@
+@import "../../shared/variables.scss";
+
+.search-form{
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+  width: 800px;
+  &__input-text {
+    background-color: $cards-bg-color;
+    border: 2px solid $border-color;
+    border-radius: 30px;
+    color: $font-color;
+    cursor: pointer;
+    font-size: 20px;
+    height: 60px;
+    outline: none;
+    padding: 0px 20px;
+    width: 40%;
+  }
+}
+
+
+

@@ -1,11 +1,11 @@
-import './SearchForm.css'
+import './SearchForm.scss'
 import React from 'react'
 
 export const SearchForm = (props) => {
   return (
-    <div id="form-container">
+    <div className="search-form">
       <input
-        className="input-text"
+        className="search-form__input-text"
         name="description"
         type="text"
         onChange={(e) => props.handleFormChange(e)}
@@ -13,7 +13,7 @@ export const SearchForm = (props) => {
         value={props.userInput.description}
       />
       <input
-        className="input-text"
+        className="search-form__input-text"
         name="location"
         type="text"
         onChange={(e) => props.handleFormChange(e)}

@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { Provider } from 'react-redux'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
@@ -9,7 +9,7 @@ import store from '../../redux/store'
 function App() {
   return (
     <Provider store={store}>
-      <div id="main-div">
+      <div className="main-div">
         <Header />
         <MainContent />
         <Footer />

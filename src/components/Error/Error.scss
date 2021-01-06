@@ -1,15 +1,15 @@
-#error-div{
+.error{
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
 
-#error-img{
+.error__img{
   margin: auto;
   width: 300px;
 }
 
-#error-message{
+.error__message{
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 40px;

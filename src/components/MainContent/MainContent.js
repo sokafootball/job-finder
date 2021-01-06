@@ -1,5 +1,5 @@
 import {} from '../../redux'
-import './MainContent.css'
+import './MainContent.scss'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
 import { Loader } from '../Loader/Loader'
@@ -53,7 +53,7 @@ function MainContent() {
   }
 
   return (
-    <div id="main">
+    <div className="main-content">
       <SearchForm handleFormChange={handleFormChange} userInput={userInput} />
       {chooseResult()}
     </div>

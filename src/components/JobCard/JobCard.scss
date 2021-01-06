@@ -10,57 +10,59 @@
   justify-content: space-between;
   margin: 10px;
   width: 800px;
+
+  &__header{
+    background-color: $border-color;
+    border-radius: 5px 5px 0px 0px;
+    color: $job-title-color
+  }
+
+  &__company-div{
+    align-items: center;
+    display: flex;
+    height: 100px;
+    justify-content: left;
+    margin: 0 0 $card-element-gap $card-element-gap
+  }
+
+  &__company-logo{
+    width: 100px;
+    height: auto;
+    max-height: 100px;
+  }
+
+  &__company-name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+  &__details{
+    display: flex;
+    justify-content: left;
+    margin-left: $card-element-gap
+  }
+
+  &__header{
+    justify-content: space-between;
+    display: flex;
+    padding: $card-element-gap;
+  }
+
+  &__separator{
+    white-space: pre;
+  }
+
+  &__title{
+    color: $job-title-color;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  &__type{
+    font-weight: bold;
+  }
 }
 
-.job-card__header{
-  background-color: $border-color;
-  border-radius: 5px 5px 0px 0px;
-  color: $job-title-color
-}
 
-.job-card__company-div{
-  align-items: center;
-  display: flex;
-  height: 100px;
-  justify-content: left;
-  margin: 0 0 $card-element-gap $card-element-gap
-}
-
-.job-card__company-logo{
-  width: 100px;
-  height: auto;
-  max-height: 100px;
-}
-
-.job-card__company-name{
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-.job-card__details{
-  display: flex;
-  justify-content: left;
-  margin-left: $card-element-gap
-}
-
-.job-card__header{
-  justify-content: space-between;
-  display: flex;
-  padding: $card-element-gap;
-}
-
-.job-card__separator{
-  white-space: pre;
-}
-
-.job-card__title{
-  color: $job-title-color;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.job-card__type{
-  font-weight: bold;
-}

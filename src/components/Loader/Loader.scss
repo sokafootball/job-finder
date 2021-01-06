@@ -5,26 +5,26 @@
   position: relative;
   width: 80px;
   height: 80px;
-}
-.loader__div {
-  display: inline-block;
-  position: absolute;
-  left: 8px;
-  width: 16px;
-  background: $border-color;
-  animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-}
-.loader__div-1 {
-  left: 8px;
-  animation-delay: -0.24s;
-}
-.loader__div-2 {
-  left: 32px;
-  animation-delay: -0.12s;
-}
-.loader__div-3 {
-  left: 56px;
-  animation-delay: 0;
+  &__div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: $border-color;
+    animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  &__div-1 {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  &__div-2 {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  &__div-3 {
+    left: 56px;
+    animation-delay: 0;
+  }
 }
 @keyframes loader {
   0% {

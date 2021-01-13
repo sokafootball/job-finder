@@ -4,7 +4,7 @@ import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
 import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
-import { actions as getDataActions, updateUserInput } from '../../redux'
+import { dataSliceActions, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import React from 'react'
@@ -40,7 +40,7 @@ function MainContent() {
     }
   }
   useEffect(() => {
-    dispatch(getDataActions.pending(userInput))
+    dispatch(dataSliceActions.pending(userInput))
     // eslint-disable-next-line
   }, [])
 

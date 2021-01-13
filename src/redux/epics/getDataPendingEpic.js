@@ -1,5 +1,5 @@
 import { buildUrl } from '../../shared/buildUrl'
-import { actions as dataSliceActions } from '../data/dataSlice'
+import { dataSliceActions } from '../data/dataSlice'
 import { from } from 'rxjs'
 import { map, switchMap } from 'rxjs/operators'
 import { ofType } from 'redux-observable'

@@ -21,4 +21,4 @@ const dataSlice = createSlice({
 })
 
 const { reducer, actions } = dataSlice
-export { reducer, actions }
+export { reducer as DataSliceReducer, actions as dataSliceActions }

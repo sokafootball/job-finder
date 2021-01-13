@@ -1,5 +1,5 @@
 import { DEBOUNCE_TIME } from '../../shared/constants'
-import { actions as dataSliceActions } from '../data/dataSlice'
+import { dataSliceActions } from '../data/dataSlice'
 import { debounceTime, mapTo } from 'rxjs/operators'
 import { ofType } from 'redux-observable'
 import { updateUserInput } from '../userInput/userInputSlice'

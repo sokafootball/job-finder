@@ -2,7 +2,7 @@ import { combineEpics } from 'redux-observable'
 import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
 import { reducer as dataSlice } from './data/dataSlice'
-import { getDataPendingEpic } from './data/dataSlice'
+import { getDataPendingEpic } from './epics/getDataPendingEpic'
 import { userInputEpic } from './userInput/userInputSlice'
 import { reducer as userInputReducer } from './userInput/userInputSlice'
 

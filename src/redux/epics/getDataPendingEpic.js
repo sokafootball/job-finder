@@ -1,7 +1,7 @@
 import { buildUrl } from '../../shared/buildUrl'
+import { catchError, map, switchMap } from 'rxjs/operators'
 import { dataSliceActions } from '../data/dataSlice'
-import { from } from 'rxjs'
-import { map, switchMap } from 'rxjs/operators'
+import { from, of } from 'rxjs'
 import { ofType } from 'redux-observable'
 
 const getDataPendingEpic = (action$, state$) => {
@@ -27,7 +27,10 @@ const getDataPendingEpic = (action$, state$) => {
             payload: json,
           }
         : { type: dataSliceActions.rejected.toString() }
-    })
+    }),
+    catchError((err) =>
+      of(dataSliceActions.rejected(`Some error happened: ${err}`))
+    )
   )
 }
 

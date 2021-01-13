@@ -1,11 +1,12 @@
 import { buildUrl } from '../../shared/buildUrl'
 import { actions as dataSliceActions } from '../data/dataSlice'
-import { filter, map, switchMap } from 'rxjs/operators'
 import { from } from 'rxjs'
+import { map, switchMap } from 'rxjs/operators'
+import { ofType } from 'redux-observable'
 
 const getDataPendingEpic = (action$, state$) => {
   return action$.pipe(
-    filter((action) => action.type === dataSliceActions.pending.toString()),
+    ofType(dataSliceActions.pending.toString()),
     switchMap(() => {
       return from(
         fetch(

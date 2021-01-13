@@ -1,6 +1,6 @@
 import { buildUrl } from '../../shared/buildUrl'
 import { createSlice } from '@reduxjs/toolkit'
-import { debounceTime, filter, map, switchMap } from 'rxjs/operators'
+import { filter, map, switchMap } from 'rxjs/operators'
 import { from } from 'rxjs'
 
 const dataSlice = createSlice({
@@ -26,7 +26,6 @@ const dataSlice = createSlice({
 const getDataPendingEpic = (action$, state$) => {
   return action$.pipe(
     filter((action) => action.type === dataSlice.actions.pending.toString()),
-    debounceTime(1000),
     switchMap(() => {
       return from(
         fetch(
@@ -52,5 +51,4 @@ const getDataPendingEpic = (action$, state$) => {
 }
 
 const { reducer, actions } = dataSlice
-console.log(dataSlice.actions.pending.toString())
 export { reducer, actions, getDataPendingEpic }

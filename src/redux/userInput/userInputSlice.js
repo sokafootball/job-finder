@@ -1,6 +1,7 @@
+import { DEBOUNCE_TIME } from '../../shared/constants'
 import { createSlice } from '@reduxjs/toolkit'
 import { actions as dataSliceActions } from '../data/dataSlice'
-import { filter, mapTo, startWith } from 'rxjs/operators'
+import { debounceTime, filter, mapTo } from 'rxjs/operators'
 
 const userInputSlice = createSlice({
   name: 'userInput',
@@ -16,7 +17,7 @@ const userInputSlice = createSlice({
 
 const userInputEpic = (action$) => {
   return action$.pipe(
-    startWith({ type: dataSliceActions.pending.toString() }),
+    debounceTime(DEBOUNCE_TIME),
     filter((action) => {
       return action.type === userInputSlice.actions.updateUserInput.toString()
     }),

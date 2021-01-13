@@ -4,9 +4,9 @@ import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
 import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
-import { updateUserInput } from '../../redux'
-// import { useCallback, useEffect } from 'react'
+import { actions as getDataActions, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import React from 'react'
 
 function MainContent() {
@@ -39,10 +39,10 @@ function MainContent() {
       return <Error />
     }
   }
-
-  // useEffect(() => {
-  //   dispatch(getDatapending(userInput))
-  // }, [])
+  useEffect(() => {
+    dispatch(getDataActions.pending(userInput))
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className="main-content">

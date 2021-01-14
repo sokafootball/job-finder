@@ -1,21 +1,22 @@
+import { ERROR, LOADED, LOADING } from '../../shared/constants'
 import { createSlice } from '@reduxjs/toolkit'
 
 const dataSlice = createSlice({
   name: 'getData',
-  initialState: { data: [], gotResponse: false },
+  initialState: { data: [], loadingStatus: LOADED },
   reducers: {
     pending: (state) => ({
       ...state,
-      gotResponse: false,
+      loadingStatus: LOADING,
     }),
     rejected: (state) => ({
       ...state,
-      gotResponse: true,
+      loadingStatus: ERROR,
     }),
     fulfilled: (state, action) => ({
       ...state,
       data: action.payload,
-      gotResponse: true,
+      loadingStatus: LOADED,
     }),
   },
 })

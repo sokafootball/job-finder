@@ -14,23 +14,21 @@ const getDataPendingEpic = (action$, state$) => {
             state$.value.userInput.description,
             state$.value.userInput.location
           )
-        )
+        ).then((response) => response.json())
+      ).pipe(
+        catchError((err) => {
+          return of(dataSliceActions.rejected(`Some error happened: ${err}`))
+        })
       )
     }),
-    switchMap((response) => {
-      return response.json()
-    }),
-    map((json) => {
-      return json
+    map((data) => {
+      return Array.isArray(data)
         ? {
             type: dataSliceActions.fulfilled.toString(),
-            payload: json,
+            payload: data,
           }
-        : { type: dataSliceActions.rejected.toString() }
-    }),
-    catchError((err) =>
-      of(dataSliceActions.rejected(`Some error happened: ${err}`))
-    )
+        : data
+    })
   )
 }
 

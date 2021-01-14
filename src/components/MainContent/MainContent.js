@@ -2,6 +2,7 @@ import {} from '../../redux'
 import './MainContent.scss'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
+import { LOADED, LOADING } from '../../shared/constants'
 import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
 import { dataSliceActions, updateUserInput } from '../../redux'
@@ -22,7 +23,8 @@ function MainContent() {
 
   const buildJobCards = () => {
     let jobCards = []
-    if (data.data !== undefined) {
+    if (Array.isArray(data.data)) {
+      console.log(data)
       jobCards = data.data.map((job) => {
         return <JobCard {...job} key={job.id} />
       })
@@ -31,9 +33,9 @@ function MainContent() {
   }
 
   const chooseResult = () => {
-    if (!data.gotResponse) {
+    if (data.loadingStatus === LOADING) {
       return <Loader />
-    } else if (data.data.length > 0) {
+    } else if (data.loadingStatus === LOADED) {
       return buildJobCards()
     } else {
       return <Error />

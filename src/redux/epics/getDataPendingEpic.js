@@ -7,8 +7,8 @@ import { ofType } from 'redux-observable'
 const getDataPendingEpic = (action$, state$) => {
   return action$.pipe(
     ofType(dataSliceActions.pending.toString()),
-    switchMap(() => {
-      return from(
+    switchMap(() =>
+      from(
         fetch(
           buildUrl(
             state$.value.userInput.description,
@@ -16,11 +16,11 @@ const getDataPendingEpic = (action$, state$) => {
           )
         ).then((response) => response.json())
       ).pipe(
-        catchError((err) => {
-          return of(dataSliceActions.rejected(`Some error happened: ${err}`))
-        })
+        catchError((err) =>
+          of(dataSliceActions.rejected(`Some error happened: ${err}`))
+        )
       )
-    }),
+    ),
     map((data) => {
       return Array.isArray(data)
         ? {

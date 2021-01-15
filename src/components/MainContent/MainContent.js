@@ -34,11 +34,11 @@ function MainContent() {
   const chooseResult = () => {
     if (data.loadingStatus === LOADING) {
       return <Loader />
-    } else if (data.loadingStatus === LOADED) {
-      return buildJobCards()
-    } else {
-      return <Error />
     }
+    if (data.loadingStatus === LOADED) {
+      return buildJobCards()
+    }
+    return <Error />
   }
   useEffect(() => {
     dispatch(dataSliceActions.pending(userInput))

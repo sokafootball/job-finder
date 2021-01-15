@@ -24,7 +24,6 @@ function MainContent() {
   const buildJobCards = () => {
     let jobCards = []
     if (Array.isArray(data.data)) {
-      console.log(data)
       jobCards = data.data.map((job) => {
         return <JobCard {...job} key={job.id} />
       })

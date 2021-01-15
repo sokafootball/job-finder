@@ -8,7 +8,7 @@ const userInputEpic = (action$) => {
   return action$.pipe(
     ofType(updateUserInput.toString()),
     debounceTime(DEBOUNCE_TIME),
-    mapTo({ type: dataSliceActions.pending.toString() })
+    mapTo(dataSliceActions.pending())
   )
 }
 export { userInputEpic }

@@ -1,33 +1,25 @@
-import { buildUrl } from '../../shared/buildUrl'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
-const fetchData = createAsyncThunk('fetchData', async (payload) => {
-  const response = await fetch(buildUrl(payload.description, payload.location))
-  if (!response.ok) {
-    throw Error(response.statusText)
-  }
-  return response.json()
-})
+import { ERROR, LOADED, LOADING } from '../../shared/constants'
+import { createSlice } from '@reduxjs/toolkit'
 
 const dataSlice = createSlice({
-  name: 'data',
-  initialState: { data: [], gotResponse: false },
-  reducers: {},
-  extraReducers: {
-    [fetchData.pending]: (state) => ({
+  name: 'getData',
+  initialState: { data: [], loadingStatus: LOADED },
+  reducers: {
+    pending: (state) => ({
       ...state,
-      gotResponse: false,
+      loadingStatus: LOADING,
     }),
-    [fetchData.rejected]: (state) => ({
+    rejected: (state) => ({
       ...state,
-      gotResponse: true,
+      loadingStatus: ERROR,
     }),
-    [fetchData.fulfilled]: (state, action) => ({
+    fulfilled: (state, action) => ({
       ...state,
       data: action.payload,
-      gotResponse: true,
+      loadingStatus: LOADED,
     }),
   },
 })
-const { reducer } = dataSlice
-export { fetchData, reducer }
+
+const { reducer, actions } = dataSlice
+export { reducer as DataSliceReducer, actions as dataSliceActions }

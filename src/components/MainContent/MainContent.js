@@ -2,12 +2,13 @@ import {} from '../../redux'
 import './MainContent.scss'
 import { Error } from '../Error/Error'
 import { JobCard } from '../JobCard/JobCard'
+import { LOADED, LOADING } from '../../shared/constants'
 import { Loader } from '../Loader/Loader'
 import { SearchForm } from '../SearchForm/SearchForm'
-import { fetchData, updateUserInput } from '../../redux'
+import { dataSliceActions, updateUserInput } from '../../redux'
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useCallback, useEffect } from 'react'
-import debounce from 'lodash/debounce'
+import { useEffect } from 'react'
+import React from 'react'
 
 function MainContent() {
   const data = useSelector((state) => state.data)
@@ -20,21 +21,9 @@ function MainContent() {
     dispatch(updateUserInput(newUserInput))
   }
 
-  const debouncedFetchData = useCallback(
-    debounce(
-      (description, location) => dispatch(fetchData({ description, location })),
-      1000
-    ),
-    []
-  )
-
-  useEffect(() => {
-    debouncedFetchData(userInput.description, userInput.location)
-  }, [debouncedFetchData, userInput])
-
   const buildJobCards = () => {
     let jobCards = []
-    if (data.data !== undefined) {
+    if (Array.isArray(data.data)) {
       jobCards = data.data.map((job) => {
         return <JobCard {...job} key={job.id} />
       })
@@ -43,14 +32,18 @@ function MainContent() {
   }
 
   const chooseResult = () => {
-    if (!data.gotResponse) {
+    if (data.loadingStatus === LOADING) {
       return <Loader />
-    } else if (data.data.length > 0) {
-      return buildJobCards()
-    } else {
-      return <Error />
     }
+    if (data.loadingStatus === LOADED) {
+      return buildJobCards()
+    }
+    return <Error />
   }
+  useEffect(() => {
+    dispatch(dataSliceActions.pending(userInput))
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className="main-content">

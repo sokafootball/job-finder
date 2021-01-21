@@ -1,7 +1,7 @@
 import { ERROR, LOADED, LOADING } from '../../shared/constants'
 import { dataSliceActions, dataSliceReducer } from './dataSlice'
 
-describe('dataSlice reducers', () => {
+describe('dataSlice reducer', () => {
   const initialState = { data: [], loadingStatus: LOADED }
   it('should handle Pending', () => {
     expect(dataSliceReducer(initialState, dataSliceActions.pending())).toEqual({

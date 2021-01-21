@@ -22,4 +22,4 @@ const dataSlice = createSlice({
 })
 
 const { reducer, actions } = dataSlice
-export { reducer as DataSliceReducer, actions as dataSliceActions }
+export { reducer as dataSliceReducer, actions as dataSliceActions }

@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer renders the Footer component correctly 1`] = `ShallowWrapper {}`;
+exports[`Footer renders the Footer component correctly 1`] = `
+<p
+  className="footer"
+>
+  A page by 
+  <span
+    className="footer__signature"
+  >
+    Laurent Capello
+  </span>
+</p>
+`;

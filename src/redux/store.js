@@ -1,4 +1,4 @@
-import { DataSliceReducer } from './data/dataSlice'
+import { dataSliceReducer } from './data/dataSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
 import { rootEpic } from './epics'
@@ -8,7 +8,7 @@ const epicMiddleware = createEpicMiddleware()
 
 const rootReducer = {
   userInput: userInputReducer,
-  data: DataSliceReducer,
+  data: dataSliceReducer,
 }
 
 const store = configureStore({

@@ -25,7 +25,7 @@ function MainContent() {
     let jobCards = []
     if (Array.isArray(data.data)) {
       jobCards = data.data.map((job) => {
-        return <JobCard {...job} key={job.id} />
+        return <JobCard {...job} key={job.JvId} />
       })
     }
     return jobCards

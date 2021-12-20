@@ -1,3 +1,4 @@
+import { TOKEN } from '../../shared/credentials'
 import { buildUrl } from '../../shared/buildUrl'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { dataSliceActions } from '../data/dataSlice'
@@ -13,7 +14,12 @@ const getDataPendingEpic = (action$, state$) => {
           buildUrl(
             state$.value.userInput.description,
             state$.value.userInput.location
-          )
+          ),
+          {
+            headers: {
+              Authorization: `Bearer ${TOKEN}`,
+            },
+          }
         ).then((response) => {
           if (response.status !== 200) {
             throw new Error(`status: ${response.status}`)
@@ -27,9 +33,8 @@ const getDataPendingEpic = (action$, state$) => {
       )
     ),
     map((data) => {
-      return Array.isArray(data)
-        ? dataSliceActions.fulfilled(data)
-        : dataSliceActions.rejected(data.payload)
+      console.log(data.Jobs)
+      return dataSliceActions.fulfilled(data.Jobs)
     })
   )
 }

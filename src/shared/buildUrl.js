@@ -1,15 +1,8 @@
-import { CLIENT_ID } from '../../shared/credentials'
+import { CLIENT_ID } from './credentials'
 
-export const buildUrl = (
-  keyword,
-  location
-  // radius,
-  // days,
-  // sortColumns,
-  // sortOrder,
-  // startRow,
-  // pageSize
-) => {
+export const buildUrl = (keywordParam, locationParam) => {
+  const keyword = keywordParam ? keywordParam : 'Programming'
+  const location = locationParam ? locationParam : 'US'
   const radius = 20
   const days = 20
   const sortColumns = 'accquisitiondate'
@@ -18,7 +11,7 @@ export const buildUrl = (
   const pageSize = 20
   const userId = CLIENT_ID
   const herokuAppUrl = 'https://laurent-cors-proxy.herokuapp.com/'
-  const apiUrl = `https://api.careeronestop.org/v1/jobsearch/${userId}/${keyword}/${location}/${radius}/${sortColumns}/${sortOrder}/${startRow}/${startRecord}/${pageSize}/${days}`
+  const apiUrl = `https://api.careeronestop.org/v1/jobsearch/${userId}/${keyword}/${location}/${radius}/${sortColumns}/${sortOrder}/${startRow}/${pageSize}/${days}`
   const finalUrl = `${herokuAppUrl}${apiUrl}`
   return finalUrl
 }

@@ -14,10 +14,11 @@
   &__header{
     background-color: $border-color;
     border-radius: 5px 5px 0px 0px;
-    color: $job-title-color
+    color: $job-title-color;
+    display: flex;
   }
 
-  &__company-div{
+  &__main-body{
     align-items: center;
     display: flex;
     height: 100px;
@@ -25,43 +26,41 @@
     margin: 0 0 $card-element-gap $card-element-gap
   }
 
-  &__company-logo{
-    width: 100px;
-    height: auto;
-    max-height: 100px;
-  }
-
   &__company-name{
     font-size: 20px;
     font-weight: bold;
-    margin-left: 20px;
-  }
-
-  &__details{
-    display: flex;
-    justify-content: left;
-    margin-left: $card-element-gap
   }
 
   &__header{
+    align-items: center;
     justify-content: space-between;
-    display: flex;
     padding: $card-element-gap;
   }
 
   &__separator{
+    font-size: 20px;
     white-space: pre;
   }
 
   &__title{
-    color: $job-title-color;
-    font-size: 20px;
+    color: $border-color;
+    font-size: 35px;
     font-weight: bold;
     text-decoration: underline;
   }
 
-  &__type{
-    font-weight: bold;
+  &__details{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__location{
+    font-size: 20px;
+  }
+
+  &__main-body{
+    display: flex;
+    justify-content: center;
   }
 }
 

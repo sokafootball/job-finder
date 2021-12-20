@@ -1,4 +1,4 @@
-import { TOKEN } from '../../shared/credentials'
+import { TOKEN } from '../../shared/constants'
 import { buildUrl } from '../../shared/buildUrl'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { dataSliceActions } from '../data/dataSlice'

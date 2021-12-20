@@ -1,4 +1,4 @@
-import { CLIENT_ID } from './credentials'
+import { CLIENT_ID } from './constants'
 
 export const buildUrl = (keywordParam, locationParam) => {
   const keyword = keywordParam ? keywordParam : 'Programming'

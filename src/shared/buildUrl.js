@@ -6,7 +6,7 @@ export const buildUrl = (keywordParam, locationParam) => {
   const radius = 20
   const days = 20
   const sortColumns = 'accquisitiondate'
-  const sortOrder = 'ASC'
+  const sortOrder = 'DESC'
   const startRow = 1
   const pageSize = 20
   const userId = CLIENT_ID

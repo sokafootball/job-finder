@@ -33,7 +33,6 @@ const getDataPendingEpic = (action$, state$) => {
       )
     ),
     map((data) => {
-      console.log(data.Jobs)
       return dataSliceActions.fulfilled(data.Jobs)
     })
   )

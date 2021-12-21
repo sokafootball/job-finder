@@ -1,7 +1,7 @@
 export const MAX_TITLE_LENGTH = 50
-export const MAX_COMPANY_NAME_LENGTH = 10
-export const MAX_COMPANY_LOCATION_LENGTH = 10
-export const SMARTPHONE_BREAKPOINT = 415
+export const MAX_COMPANY_NAME_LENGTH = 20
+export const MAX_COMPANY_LOCATION_LENGTH = 15
+export const SMARTPHONE_BREAKPOINT = 768
 export const DEBOUNCE_TIME = 1000
 export const LOADING = 'loading'
 export const LOADED = 'loaded'

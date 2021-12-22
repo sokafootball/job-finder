@@ -13,7 +13,7 @@ function JobCard(props) {
   let companyName = props.Company
   let companyLocation = props.Location
   if (viewportWidth < SMARTPHONE_BREAKPOINT) {
-    title = title.split(',')[0]
+    title = title.split('-')[0]
     title =
       title.length > MAX_TITLE_LENGTH
         ? `${title.slice(0, MAX_TITLE_LENGTH)}...`
